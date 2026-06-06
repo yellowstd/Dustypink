@@ -121,7 +121,7 @@ button{
 .section-ornament{
     position:absolute;
 
-    width:190px;
+    width:210px;
 
     aspect-ratio:1;
 
@@ -386,17 +386,168 @@ button{
 }
 
 .cover-ornament.tl{
-    top:-30px;
-    left:-20px;
+    top:-40px;
+    left:-40px;
 }
 
 .cover-ornament.br{
-    bottom:-30px;
-    right:-20px;
+    bottom:-40px;
+    right:-40px;
 
     transform:rotate(180deg);
 }
 
+    /* =========================
+   COVER PREMIUM MOTION
+========================= */
+
+/* Ornament muncul bergantian */
+.cover-ornament.tl{
+    animation:
+        coverLeftIn 1.2s ease forwards,
+        floatLeft 6s ease-in-out infinite;
+}
+
+.cover-ornament.br{
+    animation:
+        coverRightIn 1.2s ease forwards,
+        floatRight 7s ease-in-out infinite;
+
+    animation-delay:
+        .5s,
+        1.7s;
+}
+
+@keyframes coverLeftIn{
+    from{
+        opacity:0;
+        transform:
+            translate(-60px,-60px)
+            scale(.8);
+    }
+
+    to{
+        opacity:.95;
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+}
+
+@keyframes coverRightIn{
+    from{
+        opacity:0;
+        transform:
+            rotate(180deg)
+            translate(-60px,-60px)
+            scale(.8);
+    }
+
+    to{
+        opacity:.95;
+        transform:
+            rotate(180deg)
+            translate(0,0)
+            scale(1);
+    }
+}
+
+/* Gerakan halus */
+@keyframes floatLeft{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+@keyframes floatRight{
+    0%,100%{
+        transform:rotate(180deg) translateY(0);
+    }
+
+    50%{
+        transform:rotate(180deg) translateY(12px);
+    }
+}
+
+/* Cahaya lembut cover */
+.cover::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216,180,160,.12),
+            transparent 65%
+        );
+
+    pointer-events:none;
+
+    animation:coverGlow 8s ease-in-out infinite;
+}
+
+@keyframes coverGlow{
+    0%,100%{
+        opacity:.4;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.9;
+        transform:scale(1.08);
+    }
+}
+
+/* Kilau nama pengantin */
+.cover-title{
+    position:relative;
+    overflow:hidden;
+}
+
+.cover-title::after{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:60%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.8),
+            transparent
+        );
+
+    transform:skewX(-20deg);
+
+    animation:shine 7s infinite;
+}
+
+@keyframes shine{
+    0%{
+        left:-120%;
+    }
+
+    20%{
+        left:120%;
+    }
+
+    100%{
+        left:120%;
+    }
+}
+    
 .cover-inner>*{
 
     opacity:0;
