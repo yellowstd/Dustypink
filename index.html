@@ -396,6 +396,23 @@ button{
 
     transform:rotate(180deg);
 }
+    .cover-bg{
+    position:absolute;
+    inset:0;
+
+    background:
+        url('paper-texture.jpg')
+        center/cover
+        no-repeat;
+
+    opacity:.08;
+
+    z-index:1;
+    }
+    .cover-inner{
+    position:relative;
+    z-index:2;
+    }
 
     /* =========================
    COVER PREMIUM MOTION
@@ -2498,7 +2515,7 @@ html{
     <!-- ORNAMENT -->
     <div class="cover-ornament tl"></div>
     <div class="cover-ornament br"></div>
-
+    <div class="cover-bg"></div>
     <div class="cover-inner">
 
         <span class="cover-label">
