@@ -371,6 +371,20 @@ button{
    COVER ORNAMENT POSITION
 ========================= */
 
+.cover-bg{
+    position:absolute;
+    inset:0;
+
+    background:
+        url('paper-texture.jpg')
+        center/cover
+        no-repeat;
+
+    opacity:.09;
+
+    z-index:1;
+}
+
 .cover-ornament{
     position:absolute;
 
@@ -383,38 +397,26 @@ button{
         no-repeat;
 
     opacity:.9;
+
+    z-index:2; /* di atas paper */
 }
 
 .cover-ornament.tl{
     top:-40px;
     left:-40px;
-    
 }
 
 .cover-ornament.br{
     bottom:-40px;
     right:-40px;
 
-
     transform:rotate(180deg);
 }
-    .cover-bg{
-    position:absolute;
-    inset:0;
 
-    background:
-        url('paper-texture.jpg')
-        center/cover
-        no-repeat;
-
-    opacity:.09;
-
-    z-index:1;
-    }
-    .cover-inner{
+.cover-inner{
     position:relative;
-    z-index:2;
-    }
+    z-index:3; /* paling atas */
+}
 
     /* =========================
    COVER PREMIUM MOTION
