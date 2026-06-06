@@ -371,6 +371,7 @@ button{
    COVER ORNAMENT POSITION
 ========================= */
 
+/* texture */
 .cover-bg{
     position:absolute;
     inset:0;
@@ -380,44 +381,43 @@ button{
         center/cover
         no-repeat;
 
-    opacity:.09;
+    opacity:.05;
 
     z-index:1;
 }
 
+/* ornament */
 .cover-ornament{
     position:absolute;
 
     width:420px;
-    aspect-ratio:1;
+    height:420px;
 
     background:
-        url(ornament.png)
+        url('ornament.png')
         center/contain
         no-repeat;
 
-    opacity:.9;
-
-    z-index:2; /* di atas paper */
+    z-index:2;
 }
 
 .cover-ornament.tl{
-    top:-50px;
-    left:-50px;
+    top:-80px;
+    left:-80px;
 }
 
 .cover-ornament.br{
-    bottom:-50px;
-    right:-50px;
+    bottom:-80px;
+    right:-80px;
 
     transform:rotate(180deg);
 }
 
+/* text */
 .cover-inner{
     position:relative;
-    z-index:3; /* paling atas */
+    z-index:3;
 }
-
     /* =========================
    COVER PREMIUM MOTION
 ========================= */
@@ -2512,15 +2512,18 @@ html{
 </style>
 
   <body>
+        <!-- COVER -->
+<section class="cover">
 
-    <!-- COVER -->
-    <section id="cover" class="cover">
+    <!-- PAPER TEXTURE -->
+    <div class="cover-bg"></div>
 
     <!-- ORNAMENT -->
     <div class="cover-ornament tl"></div>
     <div class="cover-ornament br"></div>
-    
 
+    <!-- CONTENT -->
+    <div class="cover-inner">
         <span class="cover-label">
             THE WEDDING OF
         </span>
